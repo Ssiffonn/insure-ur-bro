@@ -34,7 +34,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "3306:3306"
+      - "3366:3366"
     environment:
       MYSQL_DATABASE: insure_ur_bro
       MYSQL_ROOT_PASSWORD: root
