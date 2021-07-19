@@ -28,3 +28,7 @@ Route::get('/companies', function () {
 Route::get('/profile', function () {
     return view('layout.profile');
 });
+
+Route::get('/company', function () {
+    return view('layout.company');
+});
