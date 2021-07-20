@@ -4,7 +4,7 @@
     companies
 @endsection
 
-@section('companies_show')
+@section('main_body')
     <div class="greet">
         <h1>Компании</h1>
     </div>

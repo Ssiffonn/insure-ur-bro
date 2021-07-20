@@ -1,3 +1,6 @@
+<?php
+    // session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,33 +20,41 @@
                     
                     <div class="dropdown">
                         <a href="services" class="dropbtn">
-                            Услуги
+                            Услуги 
                             <i class="fa fa-caret-down"></i>
                         </a>
                         <div class="dropdown-content">
-                            <a href="services">Сервис 1</a>
+                            {{-- <a href="services">Сервис 1</a> --}}
+                            <?php include "../app/DTO/services_list.php"; ?>
                         </div>
                     </div>
     
                     <div class="dropdown">
                         <a href="companies" class="dropbtn">
-                            Компании
+                            Компании 
                             <i class="fa fa-caret-down"></i>
                         </a>
                         <div class="dropdown-content">
                             {{-- <a href="company">Компания 1</a> --}}
-                            <?php include "../app/DTO/company_list.php";?>
+                            <?php include "../app/DTO/company_list.php"; ?>
                         </div>
                     </div>
     
                     <div class="profile">
-                        <a href="profile">Личный кабинет</a>
+                        {{-- <a href="profile">Личный кабинет</a> --}}
+                        <?php include "../app/DTO/logged.php"; ?>
                     </div>
                 </div>
             </form>
         </header>
+        <?php 
+            // echo $_SESSION['logged'];
+            //$value = $request->session()->get('logged');
+            //echo $value;
+        ?>
+
 
         @yield('main_body')
-        @yield('companies_show') 
+        {{-- @yield('companies_show')  --}}
     </body>
 </html>
