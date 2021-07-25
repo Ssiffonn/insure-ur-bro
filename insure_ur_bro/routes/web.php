@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\orderInsertController;
+use App\Http\Controllers\show;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,29 +19,34 @@ Route::get('/', function () {
     return view('layout.main');
 });
 
-Route::get('/services', function () {
-    return view('layout.services');
-});
+// Route::get('/services', function () {
+//     return view('layout.services');
+// });
+
+Route::get('services', [show::class, 'showServices']);
 
 Route::get('/service', function () {
     return view('layout.service');
 });
 
-Route::get('/service_order', function () {
-    return view('layout.service_order');
-});
+// Route::get('/service_order', function () {
+//     return view('layout.service_order');
+// });
 
-Route::get('/companies', function () {
-    return view('layout.companies');
-});
+// Route::get('service_order/{id}/{Cid}', [show::class, 'serviceOrder'])->name('service_order');
+
+Route::get('service_order/{id}/{Cid}', [orderInsertController::class, 'insertform'])->name('service_order');
+Route::post('create', [orderInsertController::class, 'insert'])->name('create');
+
+Route::get('companies', [show::class, 'showCopmanies'])->name('companies');
+
+
 
 Route::get('/profile', function () {
     return view('layout.profile');
 });
 
-Route::get('/company', function () {
-    return view('layout.company');
-});
+Route::get('company/{id}', [show::class, 'showCompany'])->name('company');
 
 Route::get('/profile_logged', function () {
     return view('layout.profile_logged');

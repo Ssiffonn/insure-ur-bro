@@ -30,7 +30,7 @@
                     </div>
     
                     <div class="dropdown">
-                        <a href="companies" class="dropbtn">
+                        <a href="{{ route('companies') }}" class="dropbtn">
                             Компании 
                             <i class="fa fa-caret-down"></i>
                         </a>
