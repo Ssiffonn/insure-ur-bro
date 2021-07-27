@@ -20,5 +20,7 @@
         email: <input type="text" placeholder="example@mail.ru" name="email">
         <input type="submit" name="order" value="Заказать">
     </form>
+    
+    
 
 @endsection

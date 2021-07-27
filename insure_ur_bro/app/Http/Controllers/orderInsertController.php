@@ -23,9 +23,11 @@ class orderInsertController extends Controller
         $service_id = session()->get('service_id');
         $company_id = session()->get('company_id');
         $sql = DB::table('services')->select('service_name')->where('service_id', '=', $service_id)->where('company_id', '=', $company_id)->get();
+
         foreach($sql as $row){
             $name = $row->service_name;
         }
+        
         $FIO = $request->input('FIO');
         $phone =$request->input('phone');
         $email = $request->input('email');
@@ -33,5 +35,6 @@ class orderInsertController extends Controller
         $data = array("company_id" => $company_id, "service_name" => $name, "FIO" => $FIO, "email" => $email, "phone_number" => $phone, "date" => $date);
         DB::table('orders')->insert($data);
         echo "Record inserted successfully.<br/>";
+        echo "<meta http-equiv='refresh' content='0;URL=/'>";
     }
 }

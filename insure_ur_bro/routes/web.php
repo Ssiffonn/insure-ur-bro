@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('layout.main');
-});
+})->name('main');
 
 // Route::get('/services', function () {
 //     return view('layout.services');
@@ -42,12 +42,8 @@ Route::get('companies', [show::class, 'showCopmanies'])->name('companies');
 
 
 
-Route::get('/profile', function () {
-    return view('layout.profile');
-});
+Route::get('/profile', [show::class, 'login'])->name('profile');
 
 Route::get('company/{id}', [show::class, 'showCompany'])->name('company');
 
-Route::get('/profile_logged', function () {
-    return view('layout.profile_logged');
-});
+Route::get('/profile_logged', [show::class, 'logged'])->name('profile_logged');

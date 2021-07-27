@@ -25,4 +25,14 @@ class show extends Controller
         return view('layout.company', ['info' => $data]);       
     }
 
+    public function login(){
+        $user = DB::table('companies')->get();
+        return view('layout.profile', ['user' => $user]);
+    }
+
+    public function logged(){
+        $company_id = session()->get('id');
+        $orders = DB::table('orders')->where('company_id', '=', $company_id)->get();
+        return view('layout.profile_logged', ['orders' => $orders]);
+    }
 }

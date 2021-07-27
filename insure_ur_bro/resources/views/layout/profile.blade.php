@@ -15,17 +15,14 @@
 
     <?php
         // session_start();
-        include '../app/DTO/connect.php';
         if(isset($_GET['run'])){
-            $t = 0;
-            $sql = "SELECT `company_id`,`login`,`password` FROM `companies`";
             
-            foreach ($db->query($sql) as $row) {
-                if($row['login'] == $_GET['login'] && $row['password'] == $_GET['password']){
+            foreach ($user as $row) {
+                if($row->login == $_GET['login'] && $row->password == $_GET['password']){
                     // $_SESSION['logged'] = 1;
                     // $_SESSION['id'] = $row['company_id'];
                     $session = session()->put('logged', 1);
-                    $session = session()->put('id', $row['company_id']);
+                    $session = session()->put('id', $row->company_id);
                     
                     ?>
                         <meta http-equiv="refresh" content="0;URL=profile_logged">
