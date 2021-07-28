@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Jobs\sendEmail;
 
 class orderInsertController extends Controller
 {
@@ -34,7 +35,11 @@ class orderInsertController extends Controller
         $date = date('Y-m-d');
         $data = array("company_id" => $company_id, "service_name" => $name, "FIO" => $FIO, "email" => $email, "phone_number" => $phone, "date" => $date);
         DB::table('orders')->insert($data);
-        echo "Record inserted successfully.<br/>";
+        sendEmail::dispatch($FIO, $phone, $email, $name);
+        echo "Заявка принята";
+
+        
+
         echo "<meta http-equiv='refresh' content='0;URL=/'>";
     }
 }

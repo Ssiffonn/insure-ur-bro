@@ -25,14 +25,10 @@
         echo "</table>";
 
         if(isset($_GET['exit'])){
-            // $_SESSION['logged'] = 0;
             $session = session()->put('logged', 0);
             ?>
                 <meta http-equiv="refresh" content="0;URL=profile">
             <?php
-            
-            // echo $_SESSION['logged'];
-            // echo $_SESSION['id'];
         }
         
     ?>
