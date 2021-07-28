@@ -6,7 +6,7 @@ docker-compose up -d
 ```
 
 После того как подняли
-```
+```sh
 docker exec -it insure_ur_bro-app npm install
 docker exec -it insure_ur_bro-app npm run dev
 docker exec -it insure_ur_bro-app php artisan migrate
