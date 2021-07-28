@@ -24,9 +24,14 @@ class orderInsertController extends Controller
         $service_id = session()->get('service_id');
         $company_id = session()->get('company_id');
         $sql = DB::table('services')->select('service_name')->where('service_id', '=', $service_id)->where('company_id', '=', $company_id)->get();
+        $company_email = DB::table('companies')->where('company_id', '=', $company_id)->get();
 
         foreach($sql as $row){
             $name = $row->service_name;
+        }
+
+        foreach($company_email as $row){
+            $Cemail = $row->email;
         }
         
         $FIO = $request->input('FIO');
@@ -35,7 +40,8 @@ class orderInsertController extends Controller
         $date = date('Y-m-d');
         $data = array("company_id" => $company_id, "service_name" => $name, "FIO" => $FIO, "email" => $email, "phone_number" => $phone, "date" => $date);
         DB::table('orders')->insert($data);
-        sendEmail::dispatch($FIO, $phone, $email, $name);
+        sendEmail::dispatch($FIO, $phone, $email, $name,$Cemail);
+        echo $Cemail;
         echo "Заявка принята";
 
         

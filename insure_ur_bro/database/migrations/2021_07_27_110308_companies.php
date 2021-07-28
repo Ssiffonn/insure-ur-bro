@@ -13,7 +13,12 @@ class Companies extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('companies', function(Blueprint $table){
+            $table->string('company_id');
+            $table->string('name');
+            $table->binary('Photo');
+            $table->string('email');
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class Companies extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('companies');
     }
 }

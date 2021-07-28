@@ -13,7 +13,11 @@ class Loginfo extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('loginfo', function(Blueprint $table){
+            $table->string('id');
+            $table->string('login');
+            $table->string('password');
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class Loginfo extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('loginfo');
     }
 }

@@ -26,7 +26,7 @@ class show extends Controller
     }
 
     public function login(){
-        $user = DB::table('companies')->get();
+        $user = DB::table('loginfo')->get();
         return view('layout.profile', ['user' => $user]);
     }
 

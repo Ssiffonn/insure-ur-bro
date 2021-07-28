@@ -13,7 +13,13 @@ class Services extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('services', function(Blueprint $table){
+            $table->string('company_id');
+            $table->string('service_id');
+            $table->string('service_name');
+            $table->string('default_price');
+            $table->binary('photo');
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class Services extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('services');
     }
 }

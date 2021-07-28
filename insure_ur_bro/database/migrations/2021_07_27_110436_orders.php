@@ -13,7 +13,14 @@ class Orders extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('orders', function(Blueprint $table){
+            $table->string('company_id');
+            $table->string('service_name');
+            $table->string('FIO');
+            $table->string('email');
+            $table->string('phone_number');
+            $table->date('date');
+        });
     }
 
     /**
@@ -23,6 +30,6 @@ class Orders extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('orders');
     }
 }

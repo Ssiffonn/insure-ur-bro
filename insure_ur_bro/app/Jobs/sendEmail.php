@@ -22,13 +22,15 @@ class sendEmail implements ShouldQueue
     private $phone;
     private $email;
     private $name;
+    private $Cemail;
 
-    public function __construct($FIO, $phone, $email, $name)
+    public function __construct($FIO, $phone, $email, $name, $Cemail)
     {
         $this->FIO = $FIO;
         $this->phone = $phone;
         $this->email = $email;
         $this->name = $name;
+        $this->Cemail = $Cemail;
     }
 
     public function handle()
@@ -49,7 +51,7 @@ class sendEmail implements ShouldQueue
 
             //Recipients
             $mail->setFrom('insure_ur_bro@example.com', 'insure_ur_ro');
-            $mail->addAddress('wubmail@mail.ru', $this->name);     //Add a recipient
+            $mail->addAddress($this->Cemail, $this->name);     //Add a recipient
             
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML

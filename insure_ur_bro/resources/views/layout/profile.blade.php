@@ -19,7 +19,7 @@
             foreach ($user as $row) {
                 if($row->login == $_GET['login'] && $row->password == $_GET['password']){
                     $session = session()->put('logged', 1);
-                    $session = session()->put('id', $row->company_id);
+                    $session = session()->put('id', $row->id);
                     ?>
                         <meta http-equiv="refresh" content="0;URL=profile_logged">
                     <?php
