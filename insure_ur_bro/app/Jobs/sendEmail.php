@@ -44,13 +44,13 @@ class sendEmail implements ShouldQueue
             $mail->isSMTP();                                            //Send using SMTP
             $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'den553208@gmail.com';                     //SMTP username
-            $mail->Password   = 'WUB553MAN208';                               //SMTP password
+            $mail->Username   = 'insureurbro@gmail.com';                     //SMTP username
+            $mail->Password   = 'Den553208';                               //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
             $mail->Port       = 465;
 
             //Recipients
-            $mail->setFrom('insure_ur_bro@example.com', 'insure_ur_ro');
+            $mail->setFrom('insureurbro@gmail.com', 'insure_ur_ro');
             $mail->addAddress($this->Cemail, $this->name);     //Add a recipient
             
             //Content
