@@ -23,14 +23,16 @@ class sendEmail implements ShouldQueue
     private $email;
     private $name;
     private $Cemail;
+    private $date;
 
-    public function __construct($FIO, $phone, $email, $name, $Cemail)
+    public function __construct($FIO, $phone, $email, $name, $Cemail, $date)
     {
         $this->FIO = $FIO;
         $this->phone = $phone;
         $this->email = $email;
         $this->name = $name;
         $this->Cemail = $Cemail;
+        $this->date = $date;
     }
 
     public function handle()
@@ -56,8 +58,8 @@ class sendEmail implements ShouldQueue
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
             $mail->Subject = 'Новый заказ';
-            $mail->Body    = "Услуга: ".$this->name."\nФИО: ".$this->FIO."\nтелефон: ".$this->phone."\nemail: ".$this->email;
-            $mail->AltBody = "Услуга: ".$this->name."\nФИО: ".$this->FIO."\nтелефон: ".$this->phone."\nemail: ".$this->email;
+            $mail->Body    = "Услуга: ".$this->name."\nФИО: ".$this->FIO."\nтелефон: ".$this->phone."\nemail: ".$this->email."\nДата заказа: ".$this->date;
+            $mail->AltBody = "Услуга: ".$this->name."\nФИО: ".$this->FIO."\nтелефон: ".$this->phone."\nemail: ".$this->email."\nДата заказа: ".$this->date;
 
             $mail->send();
             //echo "Успешно отправленно<\n>";

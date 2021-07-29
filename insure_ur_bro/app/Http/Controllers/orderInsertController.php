@@ -40,7 +40,7 @@ class orderInsertController extends Controller
         $date = date('Y-m-d');
         $data = array("company_id" => $company_id, "service_name" => $name, "FIO" => $FIO, "email" => $email, "phone_number" => $phone, "date" => $date);
         DB::table('orders')->insert($data);
-        sendEmail::dispatch($FIO, $phone, $email, $name,$Cemail);
+        sendEmail::dispatch($FIO, $phone, $email, $name,$Cemail, $date);
         echo $Cemail;
         echo "Заявка принята";
 
